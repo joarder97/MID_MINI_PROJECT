@@ -75,6 +75,7 @@
         $confirmPassword = $_POST["confirmPass"];
         $name = $_POST["uname"];
         $email = $_POST["email"];
+        $userType = $_POST["userType"];
 
         if(empty($id) || empty($pass) || empty($confirmPass) || empty($uname) || empty($email)){
             echo "empty fields found. Please fill all the scopes and submit.";
