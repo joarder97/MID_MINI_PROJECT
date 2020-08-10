@@ -20,19 +20,19 @@
                     <td>Password</td>
                 </tr>
                 <tr>
-                    <td><input type="password" name="password" value=""></td>
+                    <td><input type="password" name="pass" value=""></td>
                 </tr>
                 <tr>
                     <td>Confirm Password</td>
                 </tr>
                 <tr>
-                    <td><input type="password" name="confirmPassword" value=""></td>
+                    <td><input type="password" name="confirmPass" value=""></td>
                 </tr>
                 <tr>
                     <td>Name</td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="name" value=""></td>
+                    <td><input type="text" name="uname" value=""></td>
                 </tr>
                 <tr>
                     <td>Email</td>
@@ -67,6 +67,25 @@
 
 <?php
 
-    
+    if(isset($_POST["registerButton"])) {
+       
+
+        $id = $_POST["id"];
+        $password = $_POST["pass"];
+        $confirmPassword = $_POST["confirmPass"];
+        $name = $_POST["uname"];
+        $email = $_POST["email"];
+
+        if(empty($id) || empty($pass) || empty($confirmPass) || empty($uname) || empty($email)){
+            echo "empty fields found. Please fill all the scopes and submit.";
+        }
+        else if($_POST["pass"] != $_POST["confirmPass"]) {
+            echo "passwords don't match.";
+        }
+    }else{
+    $sql = "SELECT idAdmin FROM adminsystem WHERE idAdmin=?";
+    $stmt = mysqli_stmt_init($conn);
+}   
+            
 
 ?>
