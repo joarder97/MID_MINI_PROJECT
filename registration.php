@@ -66,9 +66,8 @@
 </html>
 
 <?php
-
+     $connection = mysqli_connect('127.0.0.1', 'root', '', 'system');
     if(isset($_POST["registerButton"])) {
-       require 'reg.inc.php';
 
         $id = $_POST["id"];
         $password = $_POST["pass"];
@@ -83,8 +82,15 @@
         else if($_POST["pass"] != $_POST["confirmPass"]) {
             echo "passwords don't match.";
         }
-    }else{
-    $sql = "SELECT idAdmin FROM adminsystem WHERE idAdmin=?";
+    
+        else{
+            $tableName = "users";
+            $query = "INSERT INTO $tableName (uidUsers, passUsers, unameUsers, emailUsers, uType) VALUES ('$id', '$pass','$uname','$email','$uType')";
+            mysqli_query($connection, $query);
+            mysqli_close($connection);
+
+            header("Location: login.php");
+    }
 }   
             
 
