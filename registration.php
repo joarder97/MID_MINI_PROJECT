@@ -68,7 +68,7 @@
 <?php
 
     if(isset($_POST["registerButton"])) {
-       
+       require 'reg.inc.php';
 
         $id = $_POST["id"];
         $password = $_POST["pass"];
@@ -85,7 +85,6 @@
         }
     }else{
     $sql = "SELECT idAdmin FROM adminsystem WHERE idAdmin=?";
-    $stmt = mysqli_stmt_init($conn);
 }   
             
 
